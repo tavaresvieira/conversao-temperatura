@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     dockerapp = docker.build("diogotavaresvieira/conversao-temperatura:${env.BUILD_ID}",
-                     '- f ./src/Dockerfile ./src')
+                     '-f ./src/Dockerfile ./src')
                 }
             }
         }
