@@ -2,9 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Primeiro') {
+        stage('Checkout Code') {
             steps {
-                sh 'echo "Primeira Pipeline"'
+                git url:'https://github.com/tavaresvieira/conversao-temperatura.git', branch: 'main' 
+                
+            }
+        }
+
+        stage ('Build Image'){
+            steps {
+                script {
+                    dockerapp = docker.build("diogotavaresvieira/conversao-temperatura:${env.BUILD_ID}",
+                     '- f ./src/Dockerfile ./src')
+                }
             }
         }
     }
