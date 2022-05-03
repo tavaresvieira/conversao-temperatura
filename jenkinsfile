@@ -41,7 +41,7 @@ pipeline {
 
                     ]) {
                         sh 'az login --service-principal --username $azuser --password $azpass --tenant $aztenant'
-                        sh 'az webapp config container set --docker-custom-image-name diogotavaresvieira/conversao-temperatura:$BUILD_ID --name diogo --resource-group rg-webapp' 
+                        sh 'az webapp config container set --docker-custom-image-name diogotavaresvieira/conversao-temperatura:$BUILD_ID --name diogoweb --resource-group Image_Docker' 
 
                     }
                 }
