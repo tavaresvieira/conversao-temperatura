@@ -30,5 +30,22 @@ pipeline {
             }
 
         }
+
+        stage ('Deploy Azure') {
+            steps {
+                script {
+                    withCredentials([
+                        string(credentialsId: 'AZ_User', variable: 'azuser'),
+                        string(credentialsId: 'AZ_PASS', variable: 'azpass'),
+                        string(credentialsId: 'AZ_Tenant', variable: 'aztenant'),
+
+                    ]) {
+                        sh 'az login --service-principal --username $azuser --password $azpass --tenant $aztenant'
+                        sh 'az webapp config container set --docker-custom-image-name diogotavaresvieira/conversao-temperatura:$BUILD_ID --name Jenkins-webapp --resource-group rg-jenkins-pipeline' 
+
+                    }
+                }
+            }
+        }
     }
 }
