@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: tavaresvieiraconversaotemperatura 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tavaresvieiraconversaotemperatura
+  template:
+    metadata:
+      labels:
+        app: tavaresvieiraconversaotemperatura 
+    spec:
+      containers:
+        - name: tavaresvieiraconversaotemperatura 
+          image: registrydiogo.azurecr.io/tavaresvieiraconversaotemperatura
+          ports:
+          - containerPort: 8080
