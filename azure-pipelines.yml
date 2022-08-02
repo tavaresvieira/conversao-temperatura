@@ -19,7 +19,7 @@ variables:
   imagePullSecret: 'losangelescontainera940-auth'
 
   # Agent VM image name
-  pool: 'Azure Pipelines'
+  pool: 'local-agents'
   #vmImageName: 'ubuntu-latest'
 
 
