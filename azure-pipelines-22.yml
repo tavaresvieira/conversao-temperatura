@@ -63,7 +63,7 @@ stages:
             inputs:
               action: createSecret
               secretName: $(imagePullSecret)
-              namespace: $(diogodevops)
+              # namespace: $(diogodevops)
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
 
           - task: KubernetesManifest@0
