@@ -21,7 +21,7 @@ steps:
     azureSubscription: 'Azure - Diogo(1)(8ea3853a-f6fe-4294-9479-14f58098f7f1)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: "azcopy copy '/home/vsts/work/1/s/backup.zip' 'https://diogoterraformtest.core.windows.net/backup-git'"
+    inlineScript: "azcopy copy '/home/vsts/work/1/s/backup.zip' 'https://diogoterraformtest.blob.core.windows.net/backup-git?sp=racwdl&st=2022-10-13T19:04:40Z&se=2022-10-14T03:04:40Z&spr=https&sv=2021-06-08&sr=c&sig=qkHAAV3CJXxtRJnhQirt3BHDpLVpvoSzbTNtZAOscQE%3D'"
     failOnStandardError: true
           
 
