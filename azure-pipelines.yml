@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: linux-22.04
+  vmImage: ubuntu-22.04
 
 steps:
 #- script: echo "Hello World"
