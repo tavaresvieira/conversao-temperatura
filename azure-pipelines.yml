@@ -16,7 +16,7 @@ steps:
 
 - task: AzureFileCopy@5
   inputs:
-    SourcePath: 'System.DefaultWorkingDirectory\backup.zip'
+    SourcePath: 'backup.zip'
     azureSubscription: 'Azure - Diogo(8ea3853a-f6fe-4294-9479-14f58098f7f1)'
     Destination: 'AzureBlob'
     storage: 'diogoterraformtest'
