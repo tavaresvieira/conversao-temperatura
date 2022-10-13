@@ -11,9 +11,10 @@ pool:
 
 steps:
 #- script: echo "Hello World"
-- script: 7z a -tzip backup.zip *
-
-
+- script: | 
+          7z a -tzip backup.zip *
+          ls -lha  
+          pwd 
 #- script: azcopy login       
 - task: AzureCLI@2
   inputs:
