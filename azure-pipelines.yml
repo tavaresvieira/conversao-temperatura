@@ -12,16 +12,26 @@ pool:
 steps:
 #- script: echo "Hello World"
 - script: 7z a -tzip backup.zip *
-  displayName: 'Run a one-line script'
 
-- task: AzureFileCopy@5
+
+#- script: azcopy login       
+- task: AzureCLI@2
   inputs:
-    SourcePath: '*.*'
-    azureSubscription: 'Azure - Diogo(8ea3853a-f6fe-4294-9479-14f58098f7f1)'
-    Destination: 'AzureBlob'
-    storage: 'diogoterraformtest'
-    ContainerName: 'backup-git'
-    BlobPrefix: 'backup'
+    azureSubscription: 'Azure - Diogo(1)(8ea3853a-f6fe-4294-9479-14f58098f7f1)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'azcopy copy backup.zip “https://diogoterraformtest.core.windows.net/backup-git”'
+    failOnStandardError: true
+          
+
+-# task: AzureFileCopy@5
+ # inputs:
+ #   SourcePath: '*.*'
+ #   azureSubscription: 'Azure - Diogo(8ea3853a-f6fe-4294-9479-14f58098f7f1)'
+ #   Destination: 'AzureBlob'
+ #   storage: 'diogoterraformtest'
+ #   ContainerName: 'backup-git'
+ #   BlobPrefix: 'backup'
   
 
 #- script: |
