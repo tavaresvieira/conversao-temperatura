@@ -14,7 +14,18 @@ steps:
 - script: 7z a -tzip backup.zip *
   displayName: 'Run a one-line script'
 
+- task: AzureFileCopy@5
+  inputs:
+    SourcePath: 'System.DefaultWorkingDirectory\backup.zip'
+    azureSubscription: 'Azure - Diogo(8ea3853a-f6fe-4294-9479-14f58098f7f1)'
+    Destination: 'AzureBlob'
+    storage: 'diogoterraformtest'
+    ContainerName: 'backup-git'
+    BlobPrefix: 'backup'
+  
+
 #- script: |
 #    echo Add other tasks to build, test, and deploy your project.
 #    echo See https://aka.ms/yaml
 #  displayName: 'Run a multi-line script'
+
