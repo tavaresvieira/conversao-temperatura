@@ -10,7 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: 7z a -tzip backup.zip *
+- script: echo "Hello World"
+#- script: 7z a -tzip backup.zip *
   displayName: 'Run a one-line script'
 
 #- script: |
